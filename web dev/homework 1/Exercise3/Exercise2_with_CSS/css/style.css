@@ -1,0 +1,182 @@
+html, body{
+    background-color: rgb(242, 242, 242);
+    margin: 0;
+    padding: 0;
+
+}
+
+h1{
+    font-weight:200;
+    font-size: 2.5em;
+    
+}
+
+h2{
+    font-weight: 100;
+    font-size: 2em;
+}
+
+p{
+    font-size: 1.2em;
+}
+
+
+
+footer{
+    background-color:rgb(255, 255, 255);
+}
+
+#title{
+    border-bottom: 2.5px solid rgb(54, 54, 54);
+    color: rgb(7, 7, 7);
+    margin: 0; 
+    text-align: center;
+    font-size: 2.7em;
+}
+
+span{
+    color:rgb(0, 122, 243);
+}
+
+
+.main-header{
+    background-color:rgb(255, 255, 255);
+   
+}
+
+.main-nav{
+    text-align: center;
+    
+}
+
+.main-nav ul{
+    margin: 0;
+}
+
+
+.main-nav li{
+    display: inline;
+}
+
+
+.main-nav a{
+    display: inline-block;
+    text-decoration: none;
+    padding-top: 0;
+    padding: 1em;
+    color: rgb(7, 7, 7);
+    font-size: 1.5em;
+}
+.main-nav a:hover{
+    background-color: rgba(110, 109, 109, 0.377);
+}
+
+
+.main-image{
+    display: block;
+    margin-right: auto;
+    margin-left: auto;
+    margin-top: 4em;
+    border-radius: 50%;
+}
+
+
+
+.main-section{
+    
+    border-bottom: 2.5px dashed rgb(54, 54, 54);
+    text-align: center;
+}
+
+.main-about-me h1{  
+    text-align: center;   
+    margin-top: 0;
+}
+footer{
+    border-top: 2.5px solid rgb(54, 54, 54);
+    clear: both;
+}
+
+footer h1{
+    text-align: center;
+}
+footer a, a:link{
+    text-decoration: none;
+    color: rgb(7, 7, 7);
+    
+    
+}
+
+footer ul{
+    text-align: center;
+    list-style-type: none;
+   
+}
+
+
+article a{
+    text-decoration: none;
+    color: rgb(0, 122, 243);
+    
+}
+
+article a:hover{
+    text-decoration: underline;
+}
+
+article a:visited{
+    color:rgb(3, 97, 192)
+}
+
+article a:active{
+    text-decoration: underline red;
+}
+ 
+.footer-nav{
+    text-align: center;
+}
+
+
+.education-img{
+    float: right;
+    border-radius: 50%;
+}
+
+.edu-main-section h2, .edu-lower-section h2{
+    color: rgb(0, 122, 243);
+}
+
+.edu-main-section p, .edu-lower-section p{
+    font-size: 1.6em;
+}
+
+/*.contact-main-left{
+    position: absolute;
+    left: 1350px;
+    right: auto;
+    top: 90px;
+    bottom: auto;
+    color: black;
+    
+}*/
+
+/*.contact-main-left{
+    position: absolute;
+    right: 0;
+    top: 7em;
+    color: rgb(0, 122, 243);
+}
+*/
+
+.contact-main-right{
+    color: rgb(0, 122, 243);
+    float: left;
+        
+}
+
+.contact-main-left{
+    float: right;
+    color: rgb(0, 122, 243);
+}
+
+
