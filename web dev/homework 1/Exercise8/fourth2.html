@@ -1,0 +1,197 @@
+<!DOCTYPE html>
+<html lang="el">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" type="text/css" href="styles2.css"> 
+    <title>Exercise 8</title>
+    <script src="lib/app2.js"></script>
+</head>
+<body class="grid-container">
+    
+        <header class="grid-header">
+            <h1 id="header-text">Big Data:Μία σύντομη παρουσίαση</h1>
+            <figure>
+                <img class="header-img-left" src="res/big-data-170.jpg" 
+                    srcset="res/big-data-150.jpg 150w,
+                    res/big-data-200.jpg 200w,
+                    res/big-data-250.jpg 250w"
+                    sizes="(max-width: 479px) 150px,
+                    (max-width: 1049px) 200px,
+                    250px">
+                <figcaption>Big data:Ένας πολύ ενδιαφέρων χώρος</figcaption>
+            </figure>
+            <button id="button">Click Me!</button>
+            <button id="color-button">Click me to change the header color!</button>
+        </header>
+        <aside class="grid-item grid-aside-left">
+            <nav>
+                <ul>
+                    <li><a href="index2.html">Big Data:An introduction</a></li>
+                    <li><a href="second2.html">Big Data:How we can use it</a></li>
+                    <li><a href="third2.html">Big Data:How to process it</a></li>
+                </ul>
+            </nav>
+        </aside>
+        <main class="grid-item-main">
+            <section id="form-section">
+                <form action ="mailto:themis.apostolop@gmail.com" method="GET" id="my-form">
+                    <fieldset>
+                        <details>
+                            <summary>πληροφορίες</summary>
+                            <p>Συμπληρώστε την φόρμα</p>
+                        </details>
+                        <label for="first_name">Όνομα:</label>
+                        <input type="text" required name="first_name"  pattern="[Α-Ωα-ω]+" id="first_name" placeholder="Your first name"/>
+                        <br>
+                        <label for="last_name">Επίθετο:</label>
+                        <input type="text" required name="last_name" id="last_name" pattern="[Α-Ωα-ω]+"placeholder="Your last name" autocomplete="on"/>
+                        <br>
+                        <label for="address">Διευθυνση:</label>
+                        <input list="address-list" name="address" pattern="[A-Za-z\@]" id="adresss" autocomplete="on" placeholder="Your address"/>
+                        <datalist id="address-list">
+                            <option>Διευθυνση 1</option>
+                            <option>Διεύθυνση 2</option>
+                            <option>Διευθυνση 3</option>
+                            <option>Διευθυνση 4</option>
+                        </datalist>
+                        <br>
+                        <label for="email">Email:</label>
+                        <input type="email" required name="email" pattern=".+@gmail.com" title ="Παρακάλω συμπληρώστε αυτό το πεδίο(δέχεται μόνο gmail)" id="email" placeholder="Your email" autocomplete="on"/>
+                        <br>
+                        <label for="birthday">Ημερομηνία γέννησης:</label>
+                        <input type="date" name="birthday" id="birthday">
+                        <br>
+                        <label for="tele">Τηλέφωνο: </label>
+                        <input type="tel" required name="tele" pattern="[2]{1}[1]{1}[0-1]{1}[0-9]{7}" title="δέχεται σταθερά τηλέφωνα που ξεκινάνε μόνο απο 210 ή 211" id="tele" placeholder="Your telephone"/>
+                        <br>
+                        <label for="country">Χώρα:</label>
+                        <input list="country-list" name="country" pattern="[A-Za-z\@]" id="country" autocomplete="on"/>
+                        <datalist id="country-list">
+                            <option>Greece</option>
+                            <option>Germany</option>
+                            <option>Australia</option>
+                            <option>England</option>
+                            <option>Spain</option>
+                            <option>Lithuania</option>
+                        </datalist>
+                        <br>
+                        <label for="username">Username: </label>
+                        <input type="text" required name="username" pattern="[A-Za-z\@]" id="username" placeholder="Your username"/>
+                        <br>
+                        <label for="password">Password: </label>
+                        <input type="password" required name="password" pattern="(?=.*\d)(?=.*[a-z])(?=.*[A-Z]).{8,}" title="Τουλάχιστον 8 χαρακτήρες, 1 αριθμό, 1 μικρό και μεγάλο γράμμα" id="password" placeholder="Your password"/>
+                        <br>
+                        <button id="button1" type="submit">Επιβεβαίωση</button>
+                    </fieldset>
+                </form>
+            </section>
+
+            <section id="questionnaire">
+                
+                    <form>
+                        <fieldset>
+                            <h1>Τι φύλο είσαι;</h1>
+                        <input type="radio" id="male" name="gender" value="male">
+                        <label for="male">Male</label><br>
+                        <input type="radio" id="female" name="gender" value="female">
+                        <label for="female">Female</label><br>
+                        <h1>Σου αρέσουν τα μακαρόνια με κιμά;</h1>
+                        <input type="radio" id="yes" name="spaghetti" value="yes">
+                        <label for="yes">Ναί</label><br>
+                        <input type="radio" id="no" name="spaghetti" value="no">
+                        <label for="no">Όχι</label><br>
+                        <h1>Προτιμάς αυτοκίνητο ή μοτοσικλέτα;</h1>
+                        <input type="radio" id="car" name="car-motobike" value="car">
+                        <label for="car">Αυτοκίνητο</label><br>
+                        <input type="radio" id="motobike" name="car-motobike" value="motobike">
+                        <label for="motobike">Μοτοσικλέτα</label><br>
+                        <h1>Πρώτα τι υπήρχε;Το αυγό ή η κότα;</h1>
+                        <input type="radio" id="egg" name="dilema" value="egg">
+                        <label for="egg">Αυγό</label><br>
+                        <input type="radio" id="chicken" name="dilema" value="chicken">
+                        <label for="chicken">Κότα</label><br>
+                        <h1>Θάλασσα ή βουνό;</h1>
+                        <input type="radio" id="sea" name="scenery" value="sea">
+                        <label for="sea">Θάλασσα</label><br>
+                        <input type="radio" id="mountain" name="scenery" value="mountain">
+                        <label for="mountain">Βουνό</label><br>
+                        <h1>Pizza ή σουβλάκι;</h1>
+                        <input type="radio" id="pizza" name="food" value="pizza">
+                        <label for="pizza">Pizza</label><br>
+                        <input type="radio" id="kebab" name="food" value="kebab">
+                        <label for="kebab">Σουβλάκι</label><br>
+                        <h1>Αθήνα ή Θεσσαλονίκη;</h1>
+                        <input type="radio" id="athens" name="city" value="athens">
+                        <label for="athens">Αθήνα</label><br>
+                        <input type="radio" id="salonica" name="city" value="salonica">
+                        <label for="salonica">Θεσσαλονίκη</label><br>
+                        <h1>Pink floyd ή dire straits;</h1>
+                        <input type="radio" id="pink-floyd" name="music" value="pink-floyd">
+                        <label for="pink-floyd">Pink Floyd</label><br>
+                        <input type="radio" id="dire-straits" name="music" value="dire-straits">
+                        <label for="dire-straits">Dire Straits</label><br>
+                        <h1>Darth Vader ή palpatine;</h1>
+                        <input type="radio" id="vader" name="star-wars" value="vader">
+                        <label for="vader">Darth Vader</label><br>
+                        <input type="radio" id="palpatine" name="star-wars" value="palpatine">
+                        <label for="palpatine">Palpatine</label><br>
+                        <h1>Σας άρεσε η σελίδα μου;</h1>
+                        <input type="radio" id="like-yes" name="page" value="like-yes">
+                        <label for="like-yes">Όχι</label><br>
+                        <input type="radio" id="like-no" name="page" value="like-no">
+                        <label for="like-no">ΟΧΙ ΑΛΛΑ ΜΕ ΚΕΦΑΛΑΙΑ</label><br>
+                        <button id="button1" type="submit">Επιβεβαίωση</button>
+                        </fieldset>
+                        
+                    </form>
+            </section>
+        </main>
+        <aside class="grid-aside-right">
+            
+                <section class="grid-aside-right-first">
+                    <h1>Πηγές</h1>
+                    <ul>
+                        <li><a href="https://en.wikipedia.org/wiki/Big_data">Wikipedia</a></li>
+                        <li><a href="https://www.reddit.com/r/bigdata/comments/9y7979/what_is_big_data/">Reddit</a></li>
+                        <li><a href="https://www.europarl.europa.eu/news/el/headlines/society/20210211STO97614/mazika-dedomena-orismos-ofeli-kai-prokliseis-grafimata">Ευρωπαικό κοινοβούλιο</a></li>
+                    </ul>
+                </section>
+                <figure class="grid-aside-right-second">
+                    <blockquote cite="https://info.aiim.org/aiim-blog11-cool-quotes-about-big-data-analytics">
+                        <p>The most valuable commodity I know of is information</p>
+                    </blockquote>
+                    <figcaption>—Gordon Gekko,<cite>Wall Street</cite>
+                    </figcaption>
+                </figure>
+
+                <figure class="grid-aside-right-third">
+                    <blockquote cite="https://info.aiim.org/aiim-blog11-cool-quotes-about-big-data-analytics">
+                        <p>Hiding within those mounds of data is knowledge that could change the life of a patient, or change the world</p>
+                    </blockquote>
+                    <figcaption>—Atul Butte,<cite>Stanford</cite>
+                    </figcaption>
+                </figure>
+
+                <section class="grid-aside-right-fourth">
+                    <h1>Περισσότες πληροφορίες</h1>
+                    <ul>
+                        <li><a href="https://www.youtube.com/watch?v=bAyrObl7TYE">What is big data</a></li>
+                        <li><a href="https://www.youtube.com/watch?v=nf5VlshoPcY">Big data and social media</a></li>
+                        
+                    </ul>
+                </section>
+            
+        </aside>
+        <footer class=grid-item-footer>
+            <section>
+                <h1>DISCLAIMER</h1>
+                <p>This site was created by Themis apostolopoulos(Themis Apostolopoulos copyright &#169).All rights are reserved to him</p>
+                <p id="date">Ημερομηνία</p>
+            </section>
+        </footer> 
+    
+</body>
+
+</html>

@@ -1,0 +1,104 @@
+<form action ="mailto:themis.apostolop@gmail.com" method="GET" id="my-form">
+<fieldset>
+    <details>
+        <summary>πληροφορίες</summary>
+        <p>Συμπληρώστε την φόρμα</p>
+    </details>
+    <label for="first_name">Όνομα:</label>
+    <input type="text" required name="first_name"  pattern="[Α-Ωα-ω]+" id="first_name" placeholder="Your first name"/>
+    <br>
+    <label for="last_name">Επίθετο:</label>
+    <input type="text" required name="last_name" id="last_name" pattern="[Α-Ωα-ω]+"placeholder="Your last name" autocomplete="on"/>
+    <br>
+    <label for="address">Διευθυνση:</label>
+    <input list="address-list" name="address" pattern="[A-Za-z\@]" id="adresss" autocomplete="on" placeholder="Your address"/>
+    <datalist id="address-list">
+        <option>Διευθυνση 1</option>
+        <option>Διεύθυνση 2</option>
+        <option>Διευθυνση 3</option>
+        <option>Διευθυνση 4</option>
+    </datalist>
+    <br>
+    <label for="email">Email:</label>
+    <input type="email" required name="email" pattern=".+@gmail.com" title ="Παρακάλω συμπληρώστε αυτό το πεδίο(δέχεται μόνο gmail)" id="email" placeholder="Your email" autocomplete="on"/>
+    <br>
+    <label for="birthday">Ημερομηνία γέννησης:</label>
+    <input type="date" name="birthday" id="birthday">
+    <br>
+    <label for="tele">Τηλέφωνο: </label>
+    <input type="tel" required name="tele" pattern="[2]{1}[1]{1}[0-1]{1}[0-9]{7}" title="δέχεται σταθερά τηλέφωνα που ξεκινάνε μόνο απο 210 ή 211" id="tele" placeholder="Your telephone"/>
+    <br>
+    <label for="country">Χώρα:</label>
+    <input list="country-list" name="country" pattern="[A-Za-z\@]" id="country" autocomplete="on"/>
+    <datalist id="country-list">
+        <option>Greece</option>
+        <option>Germany</option>
+        <option>Australia</option>
+        <option>England</option>
+        <option>Spain</option>
+        <option>Lithuania</option>
+    </datalist>
+    <br>
+    <label for="username">Username: </label>
+    <input type="text" required name="username" pattern="[A-Za-z\@]" id="username" placeholder="Your username"/>
+    <br>
+    <label for="password">Password: </label>
+    <input type="password" required name="password" pattern="(?=.*\d)(?=.*[a-z])(?=.*[A-Z]).{8,}" title="Τουλάχιστον 8 χαρακτήρες, 1 αριθμό, 1 μικρό και μεγάλο γράμμα" id="password" placeholder="Your password"/>
+    <br>
+    <button id="button1" type="submit">Επιβεβαίωση</button>
+</fieldset>
+<fieldset>
+    <h1>Τι φύλο είσαι;</h1>
+<input type="radio" id="male" name="gender" value="male">
+<label for="male">Male</label><br>
+<input type="radio" id="female" name="gender" value="female">
+<label for="female">Female</label><br>
+<h1>Σου αρέσουν τα μακαρόνια με κιμά;</h1>
+<input type="radio" id="yes" name="spaghetti" value="yes">
+<label for="yes">Ναί</label><br>
+<input type="radio" id="no" name="spaghetti" value="no">
+<label for="no">Όχι</label><br>
+<h1>Προτιμάς αυτοκίνητο ή μοτοσικλέτα;</h1>
+<input type="radio" id="car" name="car-motobike" value="car">
+<label for="car">Αυτοκίνητο</label><br>
+<input type="radio" id="motobike" name="car-motobike" value="motobike">
+<label for="motobike">Μοτοσικλέτα</label><br>
+<h1>Πρώτα τι υπήρχε;Το αυγό ή η κότα;</h1>
+<input type="radio" id="egg" name="dilema" value="egg">
+<label for="egg">Αυγό</label><br>
+<input type="radio" id="chicken" name="dilema" value="chicken">
+<label for="chicken">Κότα</label><br>
+<h1>Θάλασσα ή βουνό;</h1>
+<input type="radio" id="sea" name="scenery" value="sea">
+<label for="sea">Θάλασσα</label><br>
+<input type="radio" id="mountain" name="scenery" value="mountain">
+<label for="mountain">Βουνό</label><br>
+<h1>Pizza ή σουβλάκι;</h1>
+<input type="radio" id="pizza" name="food" value="pizza">
+<label for="pizza">Pizza</label><br>
+<input type="radio" id="kebab" name="food" value="kebab">
+<label for="kebab">Σουβλάκι</label><br>
+<h1>Αθήνα ή Θεσσαλονίκη;</h1>
+<input type="radio" id="athens" name="city" value="athens">
+<label for="athens">Αθήνα</label><br>
+<input type="radio" id="salonica" name="city" value="salonica">
+<label for="salonica">Θεσσαλονίκη</label><br>
+<h1>Pink floyd ή dire straits;</h1>
+<input type="radio" id="pink-floyd" name="music" value="pink-floyd">
+<label for="pink-floyd">Pink Floyd</label><br>
+<input type="radio" id="dire-straits" name="music" value="dire-straits">
+<label for="dire-straits">Dire Straits</label><br>
+<h1>Darth Vader ή palpatine;</h1>
+<input type="radio" id="vader" name="star-wars" value="vader">
+<label for="vader">Darth Vader</label><br>
+<input type="radio" id="palpatine" name="star-wars" value="palpatine">
+<label for="palpatine">Palpatine</label><br>
+<h1>Σας άρεσε η σελίδα μου;</h1>
+<input type="radio" id="like-yes" name="page" value="like-yes">
+<label for="like-yes">Όχι</label><br>
+<input type="radio" id="like-no" name="page" value="like-no">
+<label for="like-no">ΟΧΙ ΑΛΛΑ ΜΕ ΚΕΦΑΛΑΙΑ</label><br>
+<button id="button1" type="submit">Επιβεβαίωση</button>
+</fieldset>
+
+</form>
