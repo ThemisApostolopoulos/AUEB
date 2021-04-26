@@ -4,6 +4,9 @@ window.addEventListener("load", function(){
     const birthDayInput = document.getElementById("birthday");
     const passWordInput = document.getElementById("password");
     const passWordInput2 = document.getElementById("password2");
+    const userNameInput = document.getElementById("username");
+    console.log(userNameInput.value);
+
     passWordInput2.onchange = () =>{
         let valid = false;
         if(passWordInput.value == passWordInput2.value){
@@ -42,6 +45,11 @@ window.addEventListener("load", function(){
         passWordInput2.checkValidity();
     });
 
+    userNameInput.addEventListener("input", ()=>{
+        passWordInput2.setCustomValidity("");
+        passWordInput2.checkValidity();
+    });
+
 
 
 lastNameInput.addEventListener('invalid', () => {
@@ -69,6 +77,21 @@ birthDayInput.onchange = () =>{
         birthDayInput.setCustomValidity("Πρέπει να είσαι πάνω απο 18");
         //console.log("aniliko");
     }
+}
+
+userNameInput.onchange = () =>{
+    let valid = false;
+    if(userNameInput.value != "themis"){
+        valid = true;
+    }
+    if(valid){
+        userNameInput.setCustomValidity("");
+        
+    }else{
+        userNameInput.setCustomValidity("δεν πρέπει να βάλεις username: themis");
+       
+    }
+
 }
 
 
