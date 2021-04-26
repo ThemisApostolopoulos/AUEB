@@ -12,10 +12,10 @@ window.addEventListener("load", function(){
 
         if(valid){
             passWordInput2.setCustomValidity("");
-            console.log("kodikoi match");
+            //console.log("kodikoi match");
         }else{
             passWordInput2.setCustomValidity("Passwords dont match");
-            console.log("kodikoi dont match");
+            //console.log("kodikoi dont match");
         }
     }
 
@@ -47,10 +47,10 @@ window.addEventListener("load", function(){
 lastNameInput.addEventListener('invalid', () => {
   if(lastNameInput.value === '') {
     lastNameInput.setCustomValidity('Βάλε επίθετο!');
-    console.log("bruh");
+    //console.log("bruh");
   } else {
     lastNameInput.setCustomValidity('Τα επίθετα πρέπει να είναι μόνο κεφαλαία οι πεζοί χαρακτήρες !');
-    console.log("bruh2");
+    //console.log("bruh2");
   }
 });
 
@@ -64,10 +64,10 @@ birthDayInput.onchange = () =>{
 
     if(valid){
         birthDayInput.setCustomValidity("");
-        console.log("18+");
+        //console.log("18+");
     }else{
         birthDayInput.setCustomValidity("Πρέπει να είσαι πάνω απο 18");
-        console.log("aniliko");
+        //console.log("aniliko");
     }
 }
 

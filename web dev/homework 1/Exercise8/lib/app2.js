@@ -83,30 +83,4 @@ window.addEventListener("load", function(){
    /* window.onload = function(){
         var d = new Date();
         var day;
-    
-        switch(d.getDay()){
-            case 0:
-                day = "Κυριακή";
-                break;
-            case 1:
-                day = "Δευτέρα";
-                break;
-            case 2:
-                day =  "Τρίτη";
-                break;
-            case 3:
-                day = "Τετάρτη";
-                break;
-            case 4:
-                day = "Πέμπτη";
-                break;
-            case 5:
-                day = "Παρασκευή";
-                break;
-            case 6:
-                day = "Σάββατο";
-        }
-    
-        
-        document.getElementById("date").innerHTML = "Current Date: "+ d.getDate() +" " + day + " " +d.getMonth() + " " + d.getFullYear(); 
     } */
