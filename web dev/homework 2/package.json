@@ -1,0 +1,14 @@
+{
+  "name": "homework-2",
+  "version": "1.0.0",
+  "description": "homework 2 for web-dev class",
+  "main": "index.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "author": "Themistoklis Apostolopoulos",
+  "license": "ISC",
+  "dependencies": {
+    "express": "^4.17.1"
+  }
+}
