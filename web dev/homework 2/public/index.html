@@ -1,0 +1,59 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <!--<script src = "main.js"></script> -->
+    <link rel="stylesheet" type="text/css" href="css/main.css"> 
+    <script src="date.js"></script>
+    <script src="test.js"></script>
+    <script src="https://cdn.jsdelivr.net/npm/handlebars@latest/dist/handlebars.js"></script>
+</head>
+<body>
+    <header>
+        <h1 id="header-text">Αναζήτηση <span>Βιβλίων</span></h1>
+    </header>
+
+    <main>
+        <section class="main-section">
+            <h1 class = "main-header">Με την χρήση του penguin randomhouse API η αναζήτη βιβλίων γίνεται πιο εύκολη απο ποτέ!</h1>
+            
+            <fieldset>
+                <details>
+                    <summary>Πληροφορίες</summary>
+                    <p>Συμπληρώστε τα κενά αναλόγως την αναζήτηση που θέλετε να κάνετε</p>
+                </details>
+                <form>
+                    <label for="first_name">Όνομα:</label>
+                    <input type="text" required name="first_name"  pattern="[A-Za-z]+" id="first_name" placeholder="Author's Name"/>
+
+                    <label for="book_title">Τίτλος:</label>
+                    <input type="text" required name="book_title"  pattern="[A-Za-z]+" id="book_title" placeholder="Book's title"/>
+
+                    <label for="book_id">ID Βιβλίου:</label>
+                    <input type="text" required name="book_id"  id="book_title" placeholder="Book's id"/>
+
+
+                    <button type="button" id="button">Search</button>
+                </form>
+              </fieldset>
+        </section>
+
+        <section class = "main-footer">
+            <h1>Βρες βιβλία με μία αναζήτηση</h1>
+            <p>something</p>
+        </section>
+    </main>
+    <footer>
+        <section>
+            <h1>DISCLAIMER</h1>
+            <p>This site was created by Themis apostolopoulos(Themis Apostolopoulos copyright &#169;).All rights are reserved to him</p>
+            <p id="date">Ημερομηνία</p>
+        </section>
+    </footer>
+
+    
+</body>
+</html>
