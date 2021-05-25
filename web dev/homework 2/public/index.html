@@ -7,13 +7,16 @@
     <title>Document</title>
     <!--<script src = "main.js"></script> -->
     <link rel="stylesheet" type="text/css" href="css/main.css"> 
-    <script src="date.js"></script>
-    <script src="test.js"></script>
     <script src="https://cdn.jsdelivr.net/npm/handlebars@latest/dist/handlebars.js"></script>
+    <script src="date.js" type="text/javascript"></script>
+    <script src="test.js" type="text/javascript"></script>
+    
+    
 </head>
 <body>
     <header>
         <h1 id="header-text">Αναζήτηση <span>Βιβλίων</span></h1>
+        <h1 id="second-header-text">Πιο <span id = second-span>εύκολα</span> απο ποτέ</h1>
     </header>
 
     <main>
@@ -33,13 +36,40 @@
                     <input type="text" required name="book_title"  pattern="[A-Za-z]+" id="book_title" placeholder="Book's title"/>
 
                     <label for="book_id">ID Βιβλίου:</label>
-                    <input type="text" required name="book_id"  id="book_title" placeholder="Book's id"/>
+                    <input type="text" required name="book_id"  id="book_id"
+                    placeholder="Book's id"/>
 
 
                     <button type="button" id="button">Search</button>
                 </form>
               </fieldset>
         </section>
+
+       <!-- <script id="results-template" type="text/x-handlebars-template">
+        <section>
+            <h1>Αποτελέσματα</h1>
+            <ul>
+            {{#each employees}}
+                <li>{{name}},{{surname}}</li>
+            {{/each}}
+            </ul>
+        </section>
+        </script>  -->
+
+        <script id="results-template" type="text/x-handlebars-template">
+            <section>
+                <h1>Αποτελέσματα</h1>
+                <ul>
+                {{#each work}}
+                    <li>{{titleAuth}}</li>
+                {{/each}}
+                </ul>
+            </section>
+            </script> 
+
+        <div id="contents">
+
+        </div>
 
         <section class = "main-footer">
             <h1>Βρες βιβλία με μία αναζήτηση</h1>

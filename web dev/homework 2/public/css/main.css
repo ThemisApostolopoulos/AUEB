@@ -5,9 +5,17 @@
 
 body{
     background-color: #EEFBFB;
-    display: grid;
-    grid-template-rows: 0.75fr 2fr 0.75fr;
+    /* display: grid;
+    grid-template-rows: 0.75fr 2fr 0.75fr; */
 }
+#second-header-text{
+    background-color: #236ABA;
+}
+
+#second-span{
+    color:#FD730A;
+}
+
 
 p{
     font-size: 1em;
@@ -21,13 +29,32 @@ header{
     background-color: #FD730A;
 }
 
+main{
+    display: grid;
+    grid-template-columns: 1fr 2fr 1fr ;
+}
+
 .main-section{
+    grid-column: 1 / 4;
     display: grid; 
     grid-template-columns: 1fr auto 1fr ;
 }
 
 
+#contents{
+    margin-top: 2.5em;
+    text-align: center;
+    border: 3px solid #236ABA;
+    grid-column: 2 / 3;
+    
+}
 
+ul li{
+    margin-top: 1em;
+    font-size: 3em;
+    display: block;
+    background-color: #FD730A;
+}
 .main-header{
     padding-top: 2em;
     grid-column: 1 / 4 ;
@@ -118,6 +145,7 @@ fieldset{
 .main-footer{
     margin-top: 3em;
     text-align: center;
+    grid-column: 1 / 4;
 }
 
 
@@ -129,8 +157,9 @@ input:invalid{
 
 footer{
     background-color: #FD730A;
-    margin-top: 3em;
-    text-align: center;   
+    /* margin-top: 3em; */
+    text-align: center;  
+    /* padding-bottom: 0;  */
 }
 
 footer section{
