@@ -8,21 +8,25 @@
     <!--<script src = "main.js"></script> -->
     <link rel="stylesheet" type="text/css" href="css/main.css"> 
     <script src="https://cdn.jsdelivr.net/npm/handlebars@latest/dist/handlebars.js"></script>
-    <script src="date.js" type="text/javascript"></script>
-    <script src="test.js" type="text/javascript"></script>
+    <script src="js/date.js" type="text/javascript"></script>
+    <script src="js/test.js" type="text/javascript"></script>
     
     
 </head>
 <body>
     <header>
-        <h1 id="header-text">Αναζήτηση <span>Βιβλίων</span></h1>
-        <h1 id="second-header-text">Πιο <span id = second-span>εύκολα</span> απο ποτέ</h1>
+        <section>
+            <h1 id="header-text">Αναζήτηση <span>Βιβλίων</span></h1>
+            <h1 id="second-header-text">Πιο <span id = second-span>εύκολα</span> απο ποτέ</h1>
+        </section>
+        <!-- <h1 id="header-text">Αναζήτηση <span>Βιβλίων</span></h1>
+        <h1 id="second-header-text">Πιο <span id = second-span>εύκολα</span> απο ποτέ</h1> -->
     </header>
 
     <main>
         <section class="main-section">
             <h1 class = "main-header">Με την χρήση του penguin randomhouse API η αναζήτη βιβλίων γίνεται πιο εύκολη απο ποτέ!</h1>
-            
+            <a href="http://localhost:5000/books" target="_blank">Click me για να δεις τα αγαπημένα σου!</a>
             <fieldset>
                 <details>
                     <summary>Πληροφορίες</summary>
@@ -61,7 +65,9 @@
                 <h1>Αποτελέσματα</h1>
                 <ul>
                 {{#each work}}
-                    <li>{{titleAuth}}</li>
+                    <li>{{titleAuth}}, {{workid}}</li>
+                    <button id={{workid}} class="save-button" value = '{"titleAuth":"{{titleAuth}}","workid":"{{workid}}"}'>Save book</button>
+                    <button id={{workid}} class="save-button" value = '{"titleAuth":"{{titleAuth}}","workid":"{{workid}}"}'>Save book</button>
                 {{/each}}
                 </ul>
             </section>
@@ -77,6 +83,9 @@
         </section>
     </main>
     <footer>
+        <p>Lorem ipsum dolor sit, amet consectetur adipisicing elit. Aut, aspernatur aliquid. Nesciunt quo provident consequuntur quibusdam quidem! Iure provident aspernatur recusandae voluptate, animi sint molestiae reprehenderit. Quis tempore sint dolor.
+        Lorem ipsum dolor sit amet, consectetur adipisicing elit. Vero aliquid animi quos facilis reiciendis! Laboriosam tempora dicta, repudiandae impedit voluptatibus, architecto porro fugiat cum nulla odio molestiae sed libero perspiciatis. Lorem ipsum dolor sit amet consectetur adipisicing elit. Recusandae minima, explicabo neque, dolorem ut ex, earum sed eligendi asperiores perferendis error accusamus! Fuga blanditiis impedit incidunt non doloremque! Maxime, eum?
+        </p>
         <section>
             <h1>DISCLAIMER</h1>
             <p>This site was created by Themis apostolopoulos(Themis Apostolopoulos copyright &#169;).All rights are reserved to him</p>
