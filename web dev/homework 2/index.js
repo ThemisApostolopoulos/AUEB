@@ -17,14 +17,7 @@ app.set('view engine', 'handlebars');
 //app.use(logger);
 app.use(express.urlencoded({ extended: false }));
 
-// app.get('/', (req, res) =>{
-//    let books = books2.findAllbooks()
-//   res.render('books', {
-//     books: books
-//   })
-// }
-  
-// );
+
 
 //get request:returns all favourite books
 app.get('/books', (req,res)=>{
@@ -41,6 +34,7 @@ app.get('/books', (req,res)=>{
 //post requst:post(in simpler words add) a new book in the favourite books
 app.post('/books', (req,res)=>{
     
+    //create the new book
     const newBook ={ 
         titleAuth: req.body.titleAuth,
         workid: parseInt(req.body.workid)
@@ -48,15 +42,19 @@ app.post('/books', (req,res)=>{
     
 
 
-
+    //get all the books that already exist in the saved books category
     let booksList = books.findAllBooks();
+    //initialize boolean found as false.if it is false that means the book we try to add doesnt exist in the saved books.
     var found = false;
     booksList.forEach(book => {
         console.log(book.workid);
+        //check if the book is already saved in the saved books list
         if(newBook.workid === parseInt(book.workid)){
+            //make boolean found = true
             found = true;
             console.log("you already have this book saved!")
-            return res.status(404).json( {msg: 'Book already saved'});
+            //return the status that will trigger an alert to be thrown at the user
+            return res.status(400).json( {msg: 'Book already saved'});
 
 
         }
@@ -96,7 +94,7 @@ app.delete('/books/:id', (req,res)=>{
             msg:"Book deleted"
         });
     }else{
-        res.status(404).json( {msg: 'Book not found'});
+        return res.status(404).json( {msg: 'Book not found'});
     }  
 })
 

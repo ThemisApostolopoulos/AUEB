@@ -8,6 +8,11 @@ body{
     /* display: grid;
     grid-template-rows: 0.75fr 2fr 0.75fr; */
 }
+
+h2{
+    color: blueviolet;
+    text-align: center;
+}
 #second-header-text{
     background-color: #236ABA;
 }
@@ -157,13 +162,16 @@ input:invalid{
 
 footer{
     background-color: #FD730A;
-    /* margin-top: 3em; */
+    /* margin-bottom:0; */
     text-align: center;  
     /* padding-bottom: 0;  */
 }
 
 footer section{
-    padding-top: 1.5em;
+    padding-top: 6em;
+
+    /* padding-top: 10em; */
+    /* margin-bottom: 0em; */
 }
 
 
