@@ -68,7 +68,7 @@ window.onload = function(){
     if (!response.ok) {
         const message = `An error has occured: ${response.status}`;
         //alert the user that the book is already saved
-        alert("book already saved!");
+        alert("book isnt saved!");
         throw new Error(message);
     }
     const data = await response.json();
@@ -131,11 +131,19 @@ window.onload = function(){
             var div = document.getElementById("contents");
             div.innerHTML = generatedHtml;
             //console.log(div.innerHTML);
-            buttonListenersDelete();
-            buttonListeners().catch(error => {
-                alert("book already saved");
-                error.message; // "An error has occurred: 404"
-                });;
+            // buttonListenersDelete().catch(error =>{
+            //     alert("book isnt saved");
+            //     error.message;
+            // });
+            // buttonListeners().catch(error => {
+            //     alert("book already saved");
+            //     error.message; // "An error has occurred: 404"
+            //     });;
+            buttonListener().catch(error => {
+                alert("error");
+                error.message;
+            })
+
             
            
 
@@ -162,14 +170,18 @@ window.onload = function(){
             var div = document.getElementById("contents");
             div.innerHTML = generatedHtml;
             //console.log(div.innerHTML);
-            buttonListenersDelete().catch(error =>{
-                alert("book isnt saved");
+            // buttonListenersDelete().catch(error =>{
+            //     alert("book isnt saved");
+            //     error.message;
+            // });
+            // buttonListeners().catch(error => {
+            //     alert("book already saved");
+            //     error.message; // "An error has occurred: 404"
+            //     });;
+            buttonListener().catch(error => {
+                alert("error");
                 error.message;
             })
-            buttonListeners().catch(error => {
-                alert("book already saved");
-                error.message; // "An error has occurred: 404"
-                });;
             
            
 
@@ -299,12 +311,54 @@ window.onload = function(){
             //postRequest("http://localhost:5000/books", JSON.parse(x.value));
             let ulrDelete = "http://localhost:5000/books/"+String(x.id);
             console.log(ulrDelete);
-            deleteRequest(ulrDelete);
+            deleteRequest(urDelete);
 
 
         })
     }
 
     }
+    
+    function buttonListener(){
+        let buttonsDelete = document.getElementsByClassName("delete-button");
+        let buttonsSave = document.getElementsByClassName("save-button");
+        //console.log(buttons);
+        for(let i =0; i<buttonsDelete.length; i++){
+            buttonsDelete[i].addEventListener("click", ()=>{
+            // console.log(buttons[i].id);
+            //buttons[i].disabled = true;
+            let x = document.getElementById(buttonsDelete[i].id);
+            //let dataSave = JSON.parse(x.value);
+            // console.log(x);
+            console.log(x.id);
+            console.log(x.value);
+            //postRequest("http://localhost:5000/books", JSON.parse(x.value));
+            let urlDelete = "http://localhost:5000/books/"+String(x.id);
+            //console.log(ulrDelete);
+            deleteRequest(urlDelete);
+
+
+        })
+    }
+    for(let y=0; y<buttonsSave.length; y++){
+        buttonsSave[y].addEventListener("click", ()=>{
+            // console.log(buttons[i].id);
+            //buttons[i].disabled = true;
+            let x = document.getElementById(buttonsSave[y].id);
+            //let dataSave = JSON.parse(x.value);
+            // console.log(x);
+           //console.log(x.id);
+            //console.log(x.value);
+            //postRequest("http://localhost:5000/books", JSON.parse(x.value));
+            postRequest("http://localhost:5000/books", JSON.parse(x.value));
+
+
+        })
+    }
+
+    }
+
+
+
    
 }
