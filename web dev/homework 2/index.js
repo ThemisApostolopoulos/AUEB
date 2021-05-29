@@ -30,6 +30,15 @@ app.get('/books', (req,res)=>{
 })
 
 
+app.get('/books/:titleAuth/:id', (req,res)=>{
+    console.log("hello from edit server");
+    res.render('editBook',{
+        workid: req.params.id,
+        titleAuth: req.params.titleAuth
+    })
+})
+
+
 
 //post requst:post(in simpler words add) a new book in the favourite books
 app.post('/books', (req,res)=>{
@@ -39,6 +48,8 @@ app.post('/books', (req,res)=>{
         titleAuth: req.body.titleAuth,
         workid: parseInt(req.body.workid)
     }
+    
+    console.log(newBook);
     
 
 
@@ -97,6 +108,24 @@ app.delete('/books/:id', (req,res)=>{
         return res.status(404).json( {msg: 'Book not found'});
     }  
 })
+
+
+// app.put('/books:id', (req, res) => {
+//     const found = books.findAllBooks().some(book => book.workid === parseInt(req.params.id));
+  
+//     if (found) {
+//       books.findAllBooks.forEach((book, i) => {
+//         if (idFilter(req)(member)) {
+  
+//           const updMember = {...member, ...req.body};
+//           members[i] = updMember
+//           res.json({ msg: 'Member updated', updMember });
+//         }
+//       });
+//     } else {
+//       res.status(400).json({ msg: `No member with the id of ${req.params.id}` });
+//     }
+//   });
 
 
 const port = 5000;
