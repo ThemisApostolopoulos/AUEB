@@ -276,48 +276,48 @@ window.onload = function(){
 
     })
 
-    function buttonListeners(){
-        let buttons = document.getElementsByClassName("save-button");
-            console.log(buttons);
-            for(let i =0; i<buttons.length; i++){
-                buttons[i].addEventListener("click", ()=>{
-                // console.log(buttons[i].id);
-                //buttons[i].disabled = true;
-                let x = document.getElementById(buttons[i].id);
-                //let dataSave = JSON.parse(x.value);
-                // console.log(x);
-               //console.log(x.id);
-                //console.log(x.value);
-                //postRequest("http://localhost:5000/books", JSON.parse(x.value));
-                postRequest("http://localhost:5000/books", JSON.parse(x.value));
+    // function buttonListeners(){
+    //     let buttons = document.getElementsByClassName("save-button");
+    //         console.log(buttons);
+    //         for(let i =0; i<buttons.length; i++){
+    //             buttons[i].addEventListener("click", ()=>{
+    //             // console.log(buttons[i].id);
+    //             //buttons[i].disabled = true;
+    //             let x = document.getElementById(buttons[i].id);
+    //             //let dataSave = JSON.parse(x.value);
+    //             // console.log(x);
+    //            //console.log(x.id);
+    //             //console.log(x.value);
+    //             //postRequest("http://localhost:5000/books", JSON.parse(x.value));
+    //             postRequest("http://localhost:5000/books", JSON.parse(x.value));
 
 
-            })
-        }
-    }
+    //         })
+    //     }
+    // }
 
-    function buttonListenersDelete(){
-        let buttons = document.getElementsByClassName("delete-button");
-        console.log(buttons);
-        for(let i =0; i<buttons.length; i++){
-            buttons[i].addEventListener("click", ()=>{
-            // console.log(buttons[i].id);
-            //buttons[i].disabled = true;
-            let x = document.getElementById(buttons[i].id);
-            //let dataSave = JSON.parse(x.value);
-            // console.log(x);
-            console.log(x.id);
-            console.log(x.value);
-            //postRequest("http://localhost:5000/books", JSON.parse(x.value));
-            let ulrDelete = "http://localhost:5000/books/"+String(x.id);
-            console.log(ulrDelete);
-            deleteRequest(urDelete);
+    // function buttonListenersDelete(){
+    //     let buttons = document.getElementsByClassName("delete-button");
+    //     console.log(buttons);
+    //     for(let i =0; i<buttons.length; i++){
+    //         buttons[i].addEventListener("click", ()=>{
+    //         // console.log(buttons[i].id);
+    //         //buttons[i].disabled = true;
+    //         let x = document.getElementById(buttons[i].id);
+    //         //let dataSave = JSON.parse(x.value);
+    //         // console.log(x);
+    //         console.log(x.id);
+    //         console.log(x.value);
+    //         //postRequest("http://localhost:5000/books", JSON.parse(x.value));
+    //         let ulrDelete = "http://localhost:5000/books/"+String(x.id);
+    //         console.log(ulrDelete);
+    //         deleteRequest(urDelete);
 
 
-        })
-    }
+    //     })
+    // }
 
-    }
+    // }
     
     function buttonListener(){
         let buttonsDelete = document.getElementsByClassName("delete-button");

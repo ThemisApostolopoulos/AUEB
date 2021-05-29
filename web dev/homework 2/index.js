@@ -46,7 +46,8 @@ app.post('/books', (req,res)=>{
     //create the new book
     const newBook ={ 
         titleAuth: req.body.titleAuth,
-        workid: parseInt(req.body.workid)
+        workid: parseInt(req.body.workid),
+        review: ""
     }
     
     console.log(newBook);
@@ -110,22 +111,40 @@ app.delete('/books/:id', (req,res)=>{
 })
 
 
-// app.put('/books:id', (req, res) => {
-//     const found = books.findAllBooks().some(book => book.workid === parseInt(req.params.id));
-  
-//     if (found) {
-//       books.findAllBooks.forEach((book, i) => {
-//         if (idFilter(req)(member)) {
-  
-//           const updMember = {...member, ...req.body};
-//           members[i] = updMember
-//           res.json({ msg: 'Member updated', updMember });
-//         }
-//       });
-//     } else {
-//       res.status(400).json({ msg: `No member with the id of ${req.params.id}` });
-//     }
-//   });
+app.put('/books/:id', (req, res) => {
+    const found = books.findAllBooks().some(book => book.workid === parseInt(req.params.id));
+    if (found) {
+      books.findAllBooks().forEach((book) => {
+        if (book.workid ===parseInt(req.params.id)){
+
+            const updatedReview = String(req.body.review);
+            const updatedTitleName =  String(req.body.titleAuth);
+            console.log(book);
+            console.log(updatedReview);
+            console.log(updatedTitleName);
+          
+            if(updatedReview){
+                book.review = updatedReview;
+            }
+            if(updatedTitleName){
+                // book.setTitleName(updatedTitleName);
+                book.titleAuth = updatedTitleName;
+                
+            }
+
+            const updBook ={
+                titleAuth: updatedTitleName,
+                workid: parseInt(req.params.id),
+                review: updatedReview
+            }
+          res.json({ msg: 'Member updated', updBook });
+        }
+      });
+    } else {
+      res.status(400).json({ msg: `No member with the id of ${req.params.id}` });
+    }
+
+  });
 
 
 const port = 5000;

@@ -1,6 +1,13 @@
 <h1>My books</h1>
- <ul>
+ <ul class ="saved-list">
 {{#each books}}
-    <li>{{titleAuth}}</li>
+    <li>{{titleAuth}}
+        <details>
+            <summary>Κριτική</summary>
+            <p>{{review}}</p>
+        </details>
+    </li>
+    <button id={{workid}} class="edit-button" value = '{"titleAuth":"{{titleAuth}}","workid":"{{workid}}"}'>Edit book</button>
+    <button id={{workid}} class="delete-button" value = '{"titleAuth":"{{titleAuth}}","workid":"{{workid}}"}'>Delete book</button>
 {{/each}}
 </ul>
