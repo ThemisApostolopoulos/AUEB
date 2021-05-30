@@ -19,6 +19,9 @@ body{
     color:#FD730A;
 }
 
+footer>article{
+    margin-bottom: 2em;
+}
 
 p{
     font-size: 1.4em;
@@ -65,8 +68,8 @@ ul li{
 }
 
 footer{
-    margin-top: 6em;
-    grid-column: 1 / 4;
+    /* margin-top: 6em; */
+    /* grid-column: 1 / 4; */
     background-color: #FD730A;
     /* margin-bottom:0; */
     text-align: center;  
@@ -79,7 +82,7 @@ details p{
 }
 
 footer section{
-    padding-top: 6em;
+    padding-top: 3em;
 }
 
 .edit-button{

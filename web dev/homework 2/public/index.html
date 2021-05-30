@@ -26,7 +26,7 @@
     <main>
         <section class="main-section">
             <h1 class = "main-header">Με την χρήση του penguin randomhouse API η αναζήτη βιβλίων γίνεται πιο εύκολη απο ποτέ!</h1>
-            <a href="http://localhost:5000/books" target="_blank">Click me για να δεις τα αγαπημένα σου!</a>
+            <a href="http://localhost:5000/books" target="_blank" id="saved-books-link">Click me για να δεις τα αγαπημένα σου!</a>
             <fieldset>
                 <details>
                     <summary>Πληροφορίες</summary>
@@ -39,9 +39,7 @@
                     <label for="book_title">Τίτλος:</label>
                     <input type="text" required name="book_title"  pattern="[A-Za-z]+" id="book_title" placeholder="Book's title"/>
 
-                    <label for="book_id">ID Βιβλίου:</label>
-                    <input type="text" required name="book_id"  id="book_id"
-                    placeholder="Book's id"/>
+                   
 
 
                     <button type="button" id="button">Search</button>
@@ -79,13 +77,20 @@
 
         <section class = "main-footer">
             <h1>Βρες βιβλία με μία αναζήτηση</h1>
-            <p>something</p>
+            <p>This site is powered by <a href="http://www.penguinrandomhouse.biz/webservices/rest/">penguin randomhouse REST API</a></p>
         </section>
     </main>
     <footer>
-        <p>Lorem ipsum dolor sit, amet consectetur adipisicing elit. Aut, aspernatur aliquid. Nesciunt quo provident consequuntur quibusdam quidem! Iure provident aspernatur recusandae voluptate, animi sint molestiae reprehenderit. Quis tempore sint dolor.
-        Lorem ipsum dolor sit amet, consectetur adipisicing elit. Vero aliquid animi quos facilis reiciendis! Laboriosam tempora dicta, repudiandae impedit voluptatibus, architecto porro fugiat cum nulla odio molestiae sed libero perspiciatis. Lorem ipsum dolor sit amet consectetur adipisicing elit. Recusandae minima, explicabo neque, dolorem ut ex, earum sed eligendi asperiores perferendis error accusamus! Fuga blanditiis impedit incidunt non doloremque! Maxime, eum?
-        </p>
+        <article>
+            <p>Instructions:Input in the search form the title or the author's name you wish to search for.Click search.The app will fetch from the penguinrandomhouse REST API the data and via handlebars those results will be rendered in the index.html page.each search containts max 10 results.each result has a save and delete button.If you click the save button the app will save that particular search result in the saved books category, which can be accessed through a link at the top of the search form.If you click the save button while you have already saved the book, the app will alert you.If you press the delete button and that particular search result is saved at your saved books category, the app will delete it.If you press it and the search result isn't saved, you will be alerted.If you go to the saved books category, you can see your saved books, edit their fields or delete them.
+            </p>
+       </article>
+
+       <article>
+           <p>
+               Technologies used for this project:html,css,node.js,express,handlebars,nodemon
+           </p>
+       </article>
         <section>
             <h1>DISCLAIMER</h1>
             <p>This site was created by Themis apostolopoulos(Themis Apostolopoulos copyright &#169;).All rights are reserved to him</p>

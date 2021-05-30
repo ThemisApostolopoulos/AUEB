@@ -113,6 +113,23 @@ form input{
   
 }
 
+#saved-books-link{
+    grid-column: 2;
+    font-size: 2em;
+    margin-bottom: 1.5em;
+    
+}
+
+a{
+    text-decoration: none;
+}
+
+.main-footer p{
+    margin-top: 1em;
+    margin-bottom: 1em;
+}
+
+
 .delete-button{
     cursor: pointer;
     font-size: 1.2em;
@@ -186,8 +203,12 @@ footer{
     /* padding-bottom: 0;  */
 }
 
+footer>article{
+    margin-bottom: 2em;
+}
+
 footer section{
-    padding-top: 6em;
+    padding-top: 3em;
 
     /* padding-top: 10em; */
     /* margin-bottom: 0em; */

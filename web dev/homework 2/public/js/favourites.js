@@ -23,6 +23,26 @@ function buttonListenersDelete(){
 }
 }
 
+
+function buttonListenerSearch(){
+    let button = document.getElementById("button-search");
+    console.log(button);
+    button.addEventListener('click', ()=>{
+        const searchField = document.getElementById("bookSearch").value;
+        console.log(searchField);
+        const urlSearch = "http://localhost:5000/books/search=?" + searchField;
+        // searchRequest(urlSearch);
+        // location.reload();
+        // return false;
+        if(searchField){
+            window.location.href = urlSearch;
+        }
+    })
+
+
+}
+
+
 async function deleteRequest(url){
     const response = await fetch(url, {method: 'DELETE',mode: 'cors',
     headers: {
@@ -32,40 +52,18 @@ async function deleteRequest(url){
     // body:JSON.stringify({"titleAuth": "Peos Laxtaristo",
     // "workid": "790"})
     //  body: JSON.stringify(dataSave)
-})
-if (!response.ok) {
-    const message = `An error has occured: ${response.status}`;
-    //alert the user that the book is already saved
-    alert("book isnt saved!");
-    throw new Error(message);
-}
-const data = await response.json();
-console.log(data);
-return data;
-}
+    })
+    if (!response.ok) {
+        const message = `An error has occured: ${response.status}`;
+        //alert the user that the book is already saved
+        alert("book isnt saved!");
+        throw new Error(message);
+    }
+    const data = await response.json();
+    console.log(data);
+    return data;
+    }
 
-// async function editRequest(url){
-//     const response = await fetch(url, {
-//         method: 'GET'//,
-//         // mode: 'cors',
-//     //     headers: {
-//     //     'Accept': 'application/json'
-//     // }
-// })
-
-// //console.log(dataSave);
-// //console.log(JSON.stringify(dataSave));
-
-// if (!response.ok) {
-//     const message = `An error has occured: ${response.status}`;
-//     //alert the user that the book is already saved
-//     alert("error!");
-//     throw new Error(message);
-// }
-// const data = await response.json();
-// //console.log(data);
-// return data;
-// }
 
 function buttonListenersEdit(){
     let buttons = document.getElementsByClassName("edit-button");
@@ -91,7 +89,30 @@ function buttonListenersEdit(){
 
 
 window.addEventListener('load', ()=>{
-    buttonListenersEdit();
+    // var searchInput = document.getElementById("bookSearch");
+    // let typingTimer;
+    // let doneTypingInterval = 500; //0.5sec
+    // searchInput.addEventListener('keyup', () => {
+    //     clearTimeout(typingTimer);
+    //     console.log(searchInput.value);
+    //     if (searchInput.value) {
+    //         const urlSearch = "http://localhost:5000/books/search=" + searchInput.value;
+    //         typingTimer = setTimeout(searchRequest(urlSearch), doneTypingInterval);
+    //     }else{
+    //     //   //empty input in search bar
+    //     //   typingTimer = setTimeout(displaySavedBooks, doneTypingInterval);
+    //     }
+    // });
+
+    // if(searchInput.value){
+    //     const urlSearch = "http://localhost:5000/books/search=" + searchInput.value;
+    //     searchRequest(urlSearch);
+
+
+    // }
+    buttonListenerSearch();
     buttonListenersDelete();
+    buttonListenersEdit();
+
 
 })

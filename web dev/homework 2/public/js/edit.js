@@ -34,7 +34,7 @@ window.addEventListener('load', ()=>{
 
 
         if(titleName.value!=null){
-            alert("title name has text")
+            //alert("title name has text")
             console.log(titleName.value);
             editTitleName = titleName.value;
             // const workid = document.getElementById("workid");
@@ -42,7 +42,7 @@ window.addEventListener('load', ()=>{
             
         }
         if(review.value!=null){
-            alert("review has text");
+            //alert("review has text");
             console.log(review.value);
             editReview = review.value;
         }

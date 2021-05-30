@@ -27,6 +27,9 @@ app.get('/books', (req,res)=>{
         res.render('books', {
             books: books2
     })
+        // res.json({
+        //     books: books2
+        // })
 })
 
 
@@ -83,7 +86,51 @@ app.post('/books', (req,res)=>{
 
 })
 
+app.get('/books/search=?:input', (req,res)=>{
+    //search if a string is included in a book's title or author
+    //returns all the books with this property, else returns 404 status
+    console.log('searching for: ' + req.params.input);
+    searchResult = [];
+    res.set({'Content-Type': 'application/xhtml+xml; charset=utf-8'});
+    // let books2 = books.findAllBooks();
+    // let bookKanye = books2[0];
+    // console.log(bookKanye.titleAuth.includes(req.params.input));
+    books.findAllBooks().forEach(book => {
+        if(book.titleAuth.includes(req.params.input)){
+            searchResult.push(book)
+        }
+    })
 
+
+    console.log(searchResult.length);
+
+    if(searchResult.length>0){
+        // res.render('books', {
+        //     books:searchResult
+        // })
+
+        // books.setBooks(searchResult);
+        // res.json({
+        //      books:searchResult})
+
+
+        res.render('books', {
+            books: searchResult
+    })
+    }else{
+        // res.render('books', {
+        //     books:books.findAllBooks()
+        // })
+        // res.json({
+        //     books:books.findAllBooks()
+        // })
+
+        res.render('books', {
+            books: books.findAllBooks()
+    })
+    }
+
+})
 
 
 app.delete('/books/:id', (req,res)=>{
@@ -105,6 +152,10 @@ app.delete('/books/:id', (req,res)=>{
         res.json({ 
             msg:"Book deleted"
         });
+
+        // res.json({
+        //     books: books.findAllBooks()
+        // })
     }else{
         return res.status(404).json( {msg: 'Book not found'});
     }  
