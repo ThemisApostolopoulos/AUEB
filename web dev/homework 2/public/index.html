@@ -19,14 +19,14 @@
             <h1 id="header-text">Αναζήτηση <span>Βιβλίων</span></h1>
             <h1 id="second-header-text">Πιο <span id = second-span>εύκολα</span> απο ποτέ</h1>
         </section>
-        <!-- <h1 id="header-text">Αναζήτηση <span>Βιβλίων</span></h1>
-        <h1 id="second-header-text">Πιο <span id = second-span>εύκολα</span> απο ποτέ</h1> -->
+       
     </header>
 
     <main>
         <section class="main-section">
             <h1 class = "main-header">Με την χρήση του penguin randomhouse API η αναζήτη βιβλίων γίνεται πιο εύκολη απο ποτέ!</h1>
             <a href="http://localhost:5000/books" target="_blank" id="saved-books-link">Click me για να δεις τα αγαπημένα σου!</a>
+            <!-- <a href="favourites.html" target="_blank" id="saved-books-link">Click me για να δεις τα αγαπημένα σου!</a> -->
             <fieldset>
                 <details>
                     <summary>Πληροφορίες</summary>
@@ -47,21 +47,12 @@
               </fieldset>
         </section>
 
-       <!-- <script id="results-template" type="text/x-handlebars-template">
-        <section>
-            <h1>Αποτελέσματα</h1>
-            <ul>
-            {{#each employees}}
-                <li>{{name}},{{surname}}</li>
-            {{/each}}
-            </ul>
-        </section>
-        </script>  -->
+      
 
         <script id="results-template" type="text/x-handlebars-template">
             <section>
                 <h1>Αποτελέσματα</h1>
-                <ul>
+                <ul class ="results-books">
                 {{#each work}}
                     <li>{{titleAuth}}, {{workid}}</li>
                     <button id={{workid}} class="save-button" value = '{"titleAuth":"{{titleAuth}}","workid":"{{workid}}"}'>Save book</button>

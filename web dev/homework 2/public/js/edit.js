@@ -33,7 +33,7 @@ window.addEventListener('load', ()=>{
     buttonEdit.addEventListener('click', ()=>{
 
 
-        if(titleName.value!=null){
+        if(titleName.value!=""){
             //alert("title name has text")
             console.log(titleName.value);
             editTitleName = titleName.value;
@@ -41,7 +41,7 @@ window.addEventListener('load', ()=>{
             // console.log(parseInt(workid.innerHTML));
             
         }
-        if(review.value!=null){
+        if(review.value!=""){
             //alert("review has text");
             console.log(review.value);
             editReview = review.value;
@@ -54,9 +54,15 @@ window.addEventListener('load', ()=>{
         console.log(url);
         console.log(editData);
         editBook(url,editData);
+        //server side
         if(titleName.value!=null || review.value!=null){
             window.location.replace("http://localhost:5000/books");
         }
+
+        //client side
+        // if(titleName.value || review.value){
+        //     window.location.replace("./favourites.html");
+        // }
         
         
         // const workid = document.getElementById("workid").value

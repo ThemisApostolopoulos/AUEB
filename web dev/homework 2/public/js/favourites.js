@@ -30,7 +30,7 @@ function buttonListenerSearch(){
     button.addEventListener('click', ()=>{
         const searchField = document.getElementById("bookSearch").value;
         console.log(searchField);
-        const urlSearch = "http://localhost:5000/books/search=?" + searchField;
+        const urlSearch = "http://localhost:5000/books/search=" + searchField;
         // searchRequest(urlSearch);
         // location.reload();
         // return false;

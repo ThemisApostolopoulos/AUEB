@@ -18,7 +18,7 @@ app.set('view engine', 'handlebars');
 app.use(express.urlencoded({ extended: false }));
 
 
-
+//server side 
 //get request:returns all favourite books
 app.get('/books', (req,res)=>{
         // res.json(books2.findAllBooks());
@@ -31,6 +31,19 @@ app.get('/books', (req,res)=>{
         //     books: books2
         // })
 })
+
+
+//client side
+// app.get('/books', (req,res)=>{
+//     // res.json(books2.findAllBooks());
+//     // console.log(books2.findAllBooks());
+//     let books2 = books.findAllBooks();
+//     res.json({books:books.findAllBooks()})
+//     // res.json({
+//     //     books: books2
+//     // })
+
+// })
 
 
 app.get('/books/:titleAuth/:id', (req,res)=>{
@@ -86,12 +99,12 @@ app.post('/books', (req,res)=>{
 
 })
 
-app.get('/books/search=?:input', (req,res)=>{
+app.get('/books/search=:input', (req,res)=>{
     //search if a string is included in a book's title or author
     //returns all the books with this property, else returns 404 status
     console.log('searching for: ' + req.params.input);
     searchResult = [];
-    res.set({'Content-Type': 'application/xhtml+xml; charset=utf-8'});
+    // res.set({'Content-Type': 'application/xhtml+xml; charset=utf-8'});
     // let books2 = books.findAllBooks();
     // let bookKanye = books2[0];
     // console.log(bookKanye.titleAuth.includes(req.params.input));
@@ -99,40 +112,42 @@ app.get('/books/search=?:input', (req,res)=>{
         if(book.titleAuth.includes(req.params.input)){
             searchResult.push(book)
         }
+
     })
 
 
     console.log(searchResult.length);
 
     if(searchResult.length>0){
-        // res.render('books', {
-        //     books:searchResult
-        // })
+        res.render('books', {
+            books:searchResult
+        })
 
         // books.setBooks(searchResult);
         // res.json({
         //      books:searchResult})
 
 
-        res.render('books', {
-            books: searchResult
-    })
+    //     res.json({
+    //         books: searchResult
+
+    // })
     }else{
-        // res.render('books', {
-        //     books:books.findAllBooks()
-        // })
+        res.render('books', {
+            books:books.findAllBooks()
+        })
         // res.json({
         //     books:books.findAllBooks()
         // })
 
-        res.render('books', {
-            books: books.findAllBooks()
-    })
+    //     res.json({
+    //         books: books.findAllBooks()
+    // })
     }
 
 })
 
-
+//delete server side
 app.delete('/books/:id', (req,res)=>{
     console.log("delete " + req.params.id);
     //see if the book you want to delete exists in the favourite books list
@@ -160,6 +175,37 @@ app.delete('/books/:id', (req,res)=>{
         return res.status(404).json( {msg: 'Book not found'});
     }  
 })
+
+
+
+//delete client
+// app.delete('/books/:id', (req,res)=>{
+//     console.log("delete " + req.params.id);
+//     //see if the book you want to delete exists in the favourite books list
+//     const found = books.findAllBooks().some(book => book.workid === parseInt(req.params.id));
+
+//     // console.log(books.findAllBooks()[0].workid ===  parseInt(req.params.id));
+//     // console.log(req.params.workid);
+//     console.log(found);
+//     // console.log(books.findAllBooks()[0].workid);
+
+//     //if it exists, delete it
+//     if(found){
+//         var updatedBooks = books.findAllBooks().filter(book =>book.workid !== parseInt(req.params.id));
+//         //set the new book list without the book ther user deleted
+//         books.setBooks(updatedBooks);
+//         console.log(books.findAllBooks());
+//         res.json({ 
+//             msg:"Book deleted"
+//         });
+
+//         // res.json({
+//         //     books: books.findAllBooks()
+//         // })
+//     }else{
+//         return res.status(404).json( {msg: 'Book not found'});
+//     }  
+// })
 
 
 app.put('/books/:id', (req, res) => {
