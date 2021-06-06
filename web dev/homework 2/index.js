@@ -6,15 +6,13 @@ var cors = require('cors');
 app.use(cors());
 
 app.use(express.json());
-//const books = require('./Books');
 
-//const logger = require('./middleware/logger')
+
+
 
 var exphbs = require('express-handlebars');
 app.engine('handlebars', exphbs());
 app.set('view engine', 'handlebars');
-//middleware to log url
-//app.use(logger);
 app.use(express.urlencoded({ extended: false }));
 
 
@@ -33,7 +31,7 @@ app.get('/books', (req,res)=>{
 })
 
 
-//client side
+//client side(eixe ginei kai efarmogi client side paragogi handlebars.opou deite comments einai client einai gia auto)
 // app.get('/books', (req,res)=>{
 //     // res.json(books2.findAllBooks());
 //     // console.log(books2.findAllBooks());
@@ -101,14 +99,12 @@ app.post('/books', (req,res)=>{
 
 app.get('/books/search=:input', (req,res)=>{
     //search if a string is included in a book's title or author
-    //returns all the books with this property, else returns 404 status
+    //returns all the books with this property
     console.log('searching for: ' + req.params.input);
     searchResult = [];
-    // res.set({'Content-Type': 'application/xhtml+xml; charset=utf-8'});
-    // let books2 = books.findAllBooks();
-    // let bookKanye = books2[0];
-    // console.log(bookKanye.titleAuth.includes(req.params.input));
+    
     books.findAllBooks().forEach(book => {
+        //if the title matches, push the book to the array list of books that will be shown to the user
         if(book.titleAuth.includes(req.params.input)){
             searchResult.push(book)
         }
@@ -118,31 +114,21 @@ app.get('/books/search=:input', (req,res)=>{
 
     console.log(searchResult.length);
 
+    //if any book is found, return the search result
     if(searchResult.length>0){
         res.render('books', {
             books:searchResult
         })
 
-        // books.setBooks(searchResult);
-        // res.json({
-        //      books:searchResult})
+      
 
 
-    //     res.json({
-    //         books: searchResult
-
-    // })
+    //else return the original list of saved books
     }else{
         res.render('books', {
             books:books.findAllBooks()
         })
-        // res.json({
-        //     books:books.findAllBooks()
-        // })
-
-    //     res.json({
-    //         books: books.findAllBooks()
-    // })
+       
     }
 
 })
@@ -208,12 +194,15 @@ app.delete('/books/:id', (req,res)=>{
 // })
 
 
+
+//update book
 app.put('/books/:id', (req, res) => {
     const found = books.findAllBooks().some(book => book.workid === parseInt(req.params.id));
+    //see if the book exists 
     if (found) {
       books.findAllBooks().forEach((book) => {
         if (book.workid ===parseInt(req.params.id)){
-
+            //new fields of the book
             const updatedReview = String(req.body.review);
             const updatedTitleName =  String(req.body.titleAuth);
             console.log(book);
@@ -225,20 +214,23 @@ app.put('/books/:id', (req, res) => {
             }
             if(updatedTitleName){
                 // book.setTitleName(updatedTitleName);
+
                 book.titleAuth = updatedTitleName;
                 
             }
 
+            //thats the updated book
+            
             const updBook ={
                 titleAuth: updatedTitleName,
                 workid: parseInt(req.params.id),
                 review: updatedReview
             }
-          res.json({ msg: 'Member updated', updBook });
+          res.json({ msg: 'Book updated', updBook });
         }
       });
     } else {
-      res.status(400).json({ msg: `No member with the id of ${req.params.id}` });
+      res.status(400).json({ msg: `No book with the id of ${req.params.id}` });
     }
 
   });

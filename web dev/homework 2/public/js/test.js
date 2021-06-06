@@ -12,17 +12,7 @@ window.onload = function(){
     var title;//variable for book's title 
     var searchAuthor; //variable to save the author name the user will search for
 
-    // //event listener for the search button:fetch the data from the correct url
-    // function buttonListeners(){
-    //     let buttons = document.getElementsByClassName("save-button");
-    //     for(let i =0; i<buttons.length; i++){
-    //         buttons[i].addEventListener("click", ()=>{
-    //             console.log(this.id);
-    //             let x = document.getElementById(this.id);
-    //             console.log(x);
-    //         })
-    //     }
-    // }
+   
 
      //post to api(add a new favourite book)
      async function postRequest(url , dataSave){
@@ -31,7 +21,7 @@ window.onload = function(){
           'Accept': 'application/json',
           'Content-Type': 'application/json'
         },
-        // body:JSON.stringify({"titleAuth": "Peos Laxtaristo",
+        // body:JSON.stringify({"titleAuth": "Drake",
         // "workid": "790"})
          body: JSON.stringify(dataSave)
     })
@@ -51,13 +41,14 @@ window.onload = function(){
 
     }
 
+    //make a delete request
     async function deleteRequest(url){
         const response = await fetch(url, {method: 'DELETE',mode: 'cors',
         headers: {
           'Accept': 'application/json',
           'Content-Type': 'application/json'
         },
-        // body:JSON.stringify({"titleAuth": "Peos Laxtaristo",
+        // body:JSON.stringify({"titleAuth": "Drake",
         // "workid": "790"})
         //  body: JSON.stringify(dataSave)
     })
@@ -77,16 +68,20 @@ window.onload = function(){
 
     }
 
+    //search button listener
     button.addEventListener("click",()=>{
         
         //get the value from the search field
         searchAuthor = document.getElementById("first_name").value;
         title = document.getElementById("book_title").value;
+        //clear the input fields
+        document.getElementById("first_name").value = "";
+        document.getElementById("book_title").value = "";
         console.log(searchAuthor);
         console.log(title);
         var urlWorks = "https://reststop.randomhouse.com/resources/works?search=";
-        var urlAuthor = "https://reststop.randomhouse.com/resources/authors?lastName=";
-        var urlId = "https://reststop.randomhouse.com/resources/works/"
+       // var urlAuthor = "https://reststop.randomhouse.com/resources/authors?lastName=";
+        //var urlId = "https://reststop.randomhouse.com/resources/works/"
 
         
        
@@ -130,27 +125,11 @@ window.onload = function(){
             var generatedHtml = compiledTemplate(data);
             var div = document.getElementById("contents");
             div.innerHTML = generatedHtml;
-            //console.log(div.innerHTML);
-            // buttonListenersDelete().catch(error =>{
-            //     alert("book isnt saved");
-            //     error.message;
-            // });
-            // buttonListeners().catch(error => {
-            //     alert("book already saved");
-            //     error.message; // "An error has occurred: 404"
-            //     });;
+           
             buttonListener().catch(error => {
                 alert("error");
                 error.message;
             })
-
-            
-           
-
-            // for(let i in data.work){
-            //     console.log(data.work[i].titleAuth);
-                
-            // }
         }).catch(error => {
         error.message; // "An error has occurred: 404"
         });
@@ -169,36 +148,22 @@ window.onload = function(){
             var generatedHtml = compiledTemplate(data);
             var div = document.getElementById("contents");
             div.innerHTML = generatedHtml;
-            //console.log(div.innerHTML);
-            // buttonListenersDelete().catch(error =>{
-            //     alert("book isnt saved");
-            //     error.message;
-            // });
-            // buttonListeners().catch(error => {
-            //     alert("book already saved");
-            //     error.message; // "An error has occurred: 404"
-            //     });;
             buttonListener().catch(error => {
                 alert("error");
                 error.message;
             })
-            
            
-
-            // for(let i in data.work){
-            //     console.log(data.work[i].titleAuth);
-                
-            // }
         }).catch(error => {
         error.message; // "An error has occurred: 404"
         });
     }
 
 
-    //show the books from the authors whose last name is "searchAuthor" for example brown
+    //tried to fetch from an other url didnt have the time to make it work :(
+    // show the books from the authors whose last name is "searchAuthor" for example brown
     // if(searchAuthor){
     //     //take the correct url
-    //     var dataTemplate = [];
+    //     var dataTemplate = {books: []};
     //     urlAuthor = urlAuthor + searchAuthor;
     //     fetchData(urlAuthor);
     //     //from the return data get the authors
@@ -224,11 +189,11 @@ window.onload = function(){
     //                         // console.log(data);
     //                         // console.log(data.titleAuth);
     //                         console.log(data.workid);
-    //                         dataTemplate.push(data);
-    //                         console.log(dataTemplate);
+    //                         dataTemplate.push({"titleAuth": data.titleAuth,"workid": data.workid});
+    //                         // console.log(dataTemplate);
     //                         // var rawTemplate = document.getElementById("results-template").innerHTML;
     //                         // var compiledTemplate = Handlebars.compile(rawTemplate);
-    //                         // var generatedHtml = compiledTemplate(data);
+    //                         // var generatedHtml = compiledTemplate(dataTemplate[i]);
     //                         // var div = document.getElementById("contents");
     //                         // div.innerHTML = generatedHtml;
     //                     }).catch(error =>{
@@ -241,11 +206,11 @@ window.onload = function(){
     //                      fetchData(urlBookId)
     //                     //get the results
     //                     fetchData(urlBookId).then(data =>{
-    //                         // console.log(data.titleAuth);
-    //                         dataTemplate.push(data);
+    //                         console.log(data.workid);
+    //                         dataTemplate.push({"titleAuth": data.titleAuth,"workid": data.workid});
     //                         // var rawTemplate = document.getElementById("results-template").innerHTML;
     //                         // var compiledTemplate = Handlebars.compile(rawTemplate);
-    //                         // var generatedHtml = compiledTemplate(data);
+    //                         // var generatedHtml = compiledTemplate(dataTemplate[i]);
     //                         // var div = document.getElementById("contents");
     //                         // div.innerHTML = generatedHtml;
     //                     }).catch(error =>{
@@ -257,16 +222,33 @@ window.onload = function(){
                   
     //         }
 
-    //         var rawTemplate = document.getElementById("results-template").innerHTML;
-    //         var compiledTemplate = Handlebars.compile(rawTemplate);
-    //         var generatedHtml = compiledTemplate(dataTemplate);
-    //         var div = document.getElementById("contents");
-    //         div.innerHTML = generatedHtml;
+            
+
+    //         // var rawTemplate = document.getElementById("results-template").innerHTML;
+    //         // var compiledTemplate = Handlebars.compile(rawTemplate);
+    //         // var generatedHtml = compiledTemplate(dataTemplate);
+    //         // var div = document.getElementById("contents");
+    //         // // div.innerHTML = generatedHtml;
+    //         // for(i=0; i<dataTemplate.length; i++){
+    //         //     console.log(dataTemplate);
+    //         //     var rawTemplate = document.getElementById("results-template").innerHTML;
+    //         //     var compiledTemplate = Handlebars.compile(rawTemplate);
+    //         //     var generatedHtml = compiledTemplate(dataTemplate[i]);
+    //         //     var div = document.getElementById("contents");
+    //         //     div.innerHTML = generatedHtml;
+    //         // }
 
             
     //     }).catch(error => {
     //     error.message; // "An error has occurred: 404"
     //     });
+    //     for(i=0; i<dataTemplate.length; i++){
+    //         var rawTemplate = document.getElementById("results-template").innerHTML;
+    //         var compiledTemplate = Handlebars.compile(rawTemplate);
+    //         var generatedHtml = compiledTemplate(dataTemplate[i]);
+    //         var div = document.getElementById("contents");
+    //         div.innerHTML = generatedHtml;
+    //     }
     // }  
       
     
@@ -276,49 +258,8 @@ window.onload = function(){
 
     })
 
-    // function buttonListeners(){
-    //     let buttons = document.getElementsByClassName("save-button");
-    //         console.log(buttons);
-    //         for(let i =0; i<buttons.length; i++){
-    //             buttons[i].addEventListener("click", ()=>{
-    //             // console.log(buttons[i].id);
-    //             //buttons[i].disabled = true;
-    //             let x = document.getElementById(buttons[i].id);
-    //             //let dataSave = JSON.parse(x.value);
-    //             // console.log(x);
-    //            //console.log(x.id);
-    //             //console.log(x.value);
-    //             //postRequest("http://localhost:5000/books", JSON.parse(x.value));
-    //             postRequest("http://localhost:5000/books", JSON.parse(x.value));
-
-
-    //         })
-    //     }
-    // }
-
-    // function buttonListenersDelete(){
-    //     let buttons = document.getElementsByClassName("delete-button");
-    //     console.log(buttons);
-    //     for(let i =0; i<buttons.length; i++){
-    //         buttons[i].addEventListener("click", ()=>{
-    //         // console.log(buttons[i].id);
-    //         //buttons[i].disabled = true;
-    //         let x = document.getElementById(buttons[i].id);
-    //         //let dataSave = JSON.parse(x.value);
-    //         // console.log(x);
-    //         console.log(x.id);
-    //         console.log(x.value);
-    //         //postRequest("http://localhost:5000/books", JSON.parse(x.value));
-    //         let ulrDelete = "http://localhost:5000/books/"+String(x.id);
-    //         console.log(ulrDelete);
-    //         deleteRequest(urDelete);
-
-
-    //     })
-    // }
-
-    // }
-    
+  
+    //butoon listeners for the save and delete buttons
     function buttonListener(){
         let buttonsDelete = document.getElementsByClassName("delete-button");
         let buttonsSave = document.getElementsByClassName("save-button");

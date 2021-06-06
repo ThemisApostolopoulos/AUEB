@@ -1,3 +1,4 @@
+//button listener for delete buttons
 function buttonListenersDelete(){
     let buttons = document.getElementsByClassName("delete-button");
     console.log(buttons);
@@ -24,17 +25,17 @@ function buttonListenersDelete(){
 }
 
 
+//listener for search button
 function buttonListenerSearch(){
     let button = document.getElementById("button-search");
     console.log(button);
     button.addEventListener('click', ()=>{
         const searchField = document.getElementById("bookSearch").value;
         console.log(searchField);
+        //add to the GET url the input of the search field.
         const urlSearch = "http://localhost:5000/books/search=" + searchField;
-        // searchRequest(urlSearch);
-        // location.reload();
-        // return false;
         if(searchField){
+            //get the page
             window.location.href = urlSearch;
         }
     })
@@ -49,7 +50,7 @@ async function deleteRequest(url){
       'Accept': 'application/json',
       'Content-Type': 'application/json'
     },
-    // body:JSON.stringify({"titleAuth": "Peos Laxtaristo",
+    // body:JSON.stringify({"titleAuth": "Drake",
     // "workid": "790"})
     //  body: JSON.stringify(dataSave)
     })
@@ -79,6 +80,7 @@ function buttonListenersEdit(){
         //console.log(x.value.titleAuth);
         let titleAuth = JSON.parse(x.value);
         //console.log(titleAuth.titleAuth);
+        //go to the edit url 
         let urlEdit = "http://localhost:5000/books/" + String(titleAuth.titleAuth) +"/"+String(x.id);
         window.location.href = urlEdit;
 
@@ -89,27 +91,6 @@ function buttonListenersEdit(){
 
 
 window.addEventListener('load', ()=>{
-    // var searchInput = document.getElementById("bookSearch");
-    // let typingTimer;
-    // let doneTypingInterval = 500; //0.5sec
-    // searchInput.addEventListener('keyup', () => {
-    //     clearTimeout(typingTimer);
-    //     console.log(searchInput.value);
-    //     if (searchInput.value) {
-    //         const urlSearch = "http://localhost:5000/books/search=" + searchInput.value;
-    //         typingTimer = setTimeout(searchRequest(urlSearch), doneTypingInterval);
-    //     }else{
-    //     //   //empty input in search bar
-    //     //   typingTimer = setTimeout(displaySavedBooks, doneTypingInterval);
-    //     }
-    // });
-
-    // if(searchInput.value){
-    //     const urlSearch = "http://localhost:5000/books/search=" + searchInput.value;
-    //     searchRequest(urlSearch);
-
-
-    // }
     buttonListenerSearch();
     buttonListenersDelete();
     buttonListenersEdit();

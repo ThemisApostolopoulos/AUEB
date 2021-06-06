@@ -14,7 +14,7 @@ window.addEventListener('load', ()=>{
           'Accept': 'application/json',
           'Content-Type': 'application/json'
         },
-        // body:JSON.stringify({"titleAuth": "Peos Laxtaristo",
+        // body:JSON.stringify({"titleAuth": "Drake",
         // "workid": "790"})
          body: JSON.stringify(editData)
     })    
